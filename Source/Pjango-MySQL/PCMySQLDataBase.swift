@@ -16,6 +16,18 @@ open class PCMySQLDataBase: PCDataBase {
     
     internal let mysql = MySQL.init()
     
+    open override var schema: String? {
+        return (self.config as! PCMySQLConfig).schema
+    }
+    
+    public convenience init?(param: [String: Any]) {
+        guard let config = PCMySQLConfig.init(param: param) else {
+            PCCommandLineLog.init(tag: "Pjango-MySQL").debug("Oops! Faied on create database config!")
+            return nil
+        }
+        self.init(config: config)
+    }
+    
     override open func doSetup() {
         guard mysql.setOption(.MYSQL_OPT_RECONNECT, true) == true else {
             _pjango_mysql_log.error("Faied on setting MYSQL_OPT_RECONNECT!")
@@ -28,6 +40,7 @@ open class PCMySQLDataBase: PCDataBase {
     }
     
     override open func doConnect() {
+        let config = self.config as! PCMySQLConfig
         guard mysql.connect(host: config.host, user: config.user, password: config.password, port: UInt32(config.port)) else {
             _pjango_mysql_log.error("Failed on connecting database!")
             return
