@@ -12,7 +12,7 @@ import MySQL
 
 open class PCMySQLDataBase: PCDataBase {
     
-    internal let _pjango_mysql_log = PCCommandLineLog.init(tag: "Pjango-MySQL")
+    internal let _pjango_mysql_log = PCLog.init(tag: "Pjango-MySQL")
     
     internal let mysql = MySQL.init()
     
@@ -22,7 +22,7 @@ open class PCMySQLDataBase: PCDataBase {
     
     public convenience init?(param: [String: Any]) {
         guard let config = PCMySQLConfig.init(param: param) else {
-            PCCommandLineLog.init(tag: "Pjango-MySQL").debug("Oops! Faied on create database config!")
+            PCLog.init(tag: "Pjango-MySQL").debug("Oops! Faied on create database config!")
             return nil
         }
         self.init(config: config)
