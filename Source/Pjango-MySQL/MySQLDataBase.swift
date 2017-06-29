@@ -1,5 +1,5 @@
 //
-//  PCMySQLDataBase.swift
+//  MySQLDataBase.swift
 //  Pjango-MySQL
 //
 //  Created by 郑宇琦 on 2017/6/17.
@@ -10,18 +10,18 @@ import Foundation
 import Pjango
 import MySQL
 
-open class PCMySQLDataBase: PCDataBase {
+open class MySQLDataBase: PCDataBase {
     
     internal let _pjango_mysql_log = PCLog.init(tag: "Pjango-MySQL")
     
     internal let mysql = MySQL.init()
     
     open override var schema: String? {
-        return (self.config as! PCMySQLConfig).schema
+        return (self.config as! MySQLConfig).schema
     }
     
     public convenience init?(param: [String: Any]) {
-        guard let config = PCMySQLConfig.init(param: param) else {
+        guard let config = MySQLConfig.init(param: param) else {
             PCLog.init(tag: "Pjango-MySQL").debug("Oops! Faied on create database config!")
             return nil
         }
@@ -40,7 +40,7 @@ open class PCMySQLDataBase: PCDataBase {
     }
     
     override open func doConnect() {
-        let config = self.config as! PCMySQLConfig
+        let config = self.config as! MySQLConfig
         guard mysql.connect(host: config.host, user: config.user, password: config.password, port: UInt32(config.port)) else {
             _pjango_mysql_log.error("Failed on connecting database!")
             return

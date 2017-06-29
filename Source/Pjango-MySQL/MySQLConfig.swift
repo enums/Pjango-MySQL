@@ -9,7 +9,7 @@
 import Foundation
 import Pjango
 
-open class PCMySQLConfig: PCDataBaseConfig {
+open class MySQLConfig: PCDataBaseConfig {
     
     public var schema = "default"
     public var user = "root"
