@@ -9,39 +9,39 @@
    <img src="https://img.shields.io/badge/License-Apache-lightgrey.svg?style=flat">
 </p>
 
-MySQL support for [Pjango](https://github.com/enums/pjango).
+适用于 [Pjango](https://github.com/enums/pjango) 的 MySQL 数据库组件。
 
 ## Usage
 
-- Need [MySQL](https://www.mysql.com).
-- Clone this repo.
-- macOS: Use Swift Package Manager to gen a xcodeproj:
+- 需要 [MySQL](https://www.mysql.com).
+- 克隆此仓库
+- macOS: 使用下面的命令生成 Xcode 工程进行编译:
 
 ```bash
 $ swift package generate-xcodeproj
 ```
 
-- There are some tips for compile problem:
+- 如果遇到编译问题，参考:
 
-1. Edit `module.modulemap`. Set header: `/usr/local/mysql-5.7.17-macos10.12-x86_64/include/mysql.h`.
+1. 编辑 `module.modulemap`. 设置你的真实头文件路径，例: `/usr/local/mysql-5.7.17-macos10.12-x86_64/include/mysql.h`.
 
-2. Target -> MySQL -> Build Settings -> Library Search Paths. Add `/usr/local/mysql/lib`.
+2. Target -> MySQL -> Build Settings -> Library Search Paths. 添加 `/usr/local/mysql/lib`.
 
-3. Target -> Pjango-MySQL -> Build Settings -> Other Linker Flags. Add `-L/usr/local/mysql/lib`
+3. Target -> Pjango-MySQL -> Build Settings -> Other Linker Flags. 添加 `-L/usr/local/mysql/lib`
 
 
-- Linux: Use Swift Package Manager to compiling:
+- Linux: 使用`Swift Package Manager`编译:
 
 ```bash
 $ swift build
 ```
 
-Also see [Perfect-MySQL](https://github.com/PerfectlySoft/Perfect-MySQL).
+参考: [Perfect-MySQL](https://github.com/PerfectlySoft/Perfect-MySQL).
 
-## More Component
+## 更多组件
 
-See: [https://github.com/enums/pjango](https://github.com/enums/pjango)
+请参考: [https://github.com/enums/pjango](https://github.com/enums/pjango)
 
-## Contact
+## 联系我
 
-Mail me: [enum@enumsblog.com](enum@enumsblog.com)
+发邮件给我: [enum@enumsblog.com](mailto:enum@enumsblog.com)
