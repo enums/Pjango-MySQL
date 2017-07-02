@@ -56,7 +56,7 @@ open class MySQLDataBase: PCDataBase {
         }
         var resultArray = [PCDataBaseRecord]()
         while let row = results.next() {
-            resultArray.append(row)
+            resultArray.append(row.flatMap { $0 })
         }
         return resultArray
     }
