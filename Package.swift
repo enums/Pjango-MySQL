@@ -5,6 +5,6 @@ let package = Package(
     targets: [],
     dependencies: [
         .Package(url: "https://github.com/enums/Pjango.git", majorVersion: 0, minor: 9),
-        .Package(url: "https://github.com/PerfectlySoft/Perfect-MySQL.git", majorVersion: 2),
+        .Package(url: "https://github.com/PerfectlySoft/Perfect-MySQL.git", majorVersion: 3),
     ]
 )
