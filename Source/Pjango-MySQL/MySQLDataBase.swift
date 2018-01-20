@@ -8,7 +8,11 @@
 
 import Foundation
 import Pjango
+#if os(OSX)
 import PerfectMySQL
+#else
+import MySQL
+#endif
 
 open class MySQLDataBase: PCDataBase {
     
