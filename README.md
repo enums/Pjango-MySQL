@@ -23,7 +23,7 @@ $ swift package generate-xcodeproj
 
 - 如果遇到编译问题，参考:
 
-1. 编辑 `module.modulemap`. 设置你的真实头文件路径，例: `/usr/local/mysql-5.7.17-macos10.12-x86_64/include/mysql.h`.
+1. 编辑 `module.modulemap`. 设置你的真实头文件路径，例: `/usr/local/mysql/include/mysql.h`.
 
 2. Target -> MySQL -> Build Settings -> Library Search Paths. 添加 `/usr/local/mysql/lib`.
 
