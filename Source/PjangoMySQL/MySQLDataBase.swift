@@ -8,11 +8,7 @@
 
 import Foundation
 import Pjango
-#if os(OSX)
 import PerfectMySQL
-#else
-import MySQL
-#endif
 
 open class MySQLDataBase: PCDataBase {
     
@@ -60,7 +56,7 @@ open class MySQLDataBase: PCDataBase {
         }
         var resultArray = [PCDataBaseRecord]()
         while let row = results.next() {
-            resultArray.append(row.flatMap { $0 })
+            resultArray.append(row.compactMap { $0 })
         }
         return resultArray
     }

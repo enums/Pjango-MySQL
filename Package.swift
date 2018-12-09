@@ -1,26 +1,22 @@
+// swift-tools-version:4.2
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
 import PackageDescription
 
-#if os(OSX)
 let package = Package(
-    name: "Pjango-MySQL",
-    targets: [],
+    name: "PjangoMySQL",
+    products: [
+        .library(
+            name: "PjangoMySQL",
+            targets: ["PjangoMySQL"]),
+        ],
     dependencies: [
-        .Package(url: "https://github.com/enums/Pjango.git", majorVersion: 1, minor: 1),
-        .Package(url: "https://github.com/PerfectlySoft/Perfect-MySQL.git", majorVersion: 3, minor: 0),
-        ]
+        .package(url:"https://github.com/enums/Pjango.git" , from: "2.0.0"),
+        .package(url:"https://github.com/PerfectlySoft/Perfect-MySQL.git" , from: "3.3.0"),
+        ],
+    targets: [
+        .target(
+            name: "PjangoMySQL",
+            dependencies: ["Pjango", "PerfectMySQL"])
+    ]
 )
-#else
-let package = Package(
-    name: "Pjango-MySQL",
-    targets: [],
-    dependencies: [
-        .Package(url: "https://github.com/enums/Pjango.git", majorVersion: 1, minor: 1),
-        .Package(url: "https://github.com/PerfectlySoft/Perfect-MySQL.git", majorVersion: 2, minor: 0),
-        ]
-)
-#endif
-
-
-
-
-
