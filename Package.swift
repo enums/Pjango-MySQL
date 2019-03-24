@@ -11,7 +11,7 @@ let package = Package(
             targets: ["PjangoMySQL"]),
         ],
     dependencies: [
-        .package(url:"https://github.com/enums/Pjango.git" , from: "2.0.0"),
+        .package(url:"https://github.com/enums/Pjango.git" , from: "2.1.0"),
         .package(url:"https://github.com/PerfectlySoft/Perfect-MySQL.git" , from: "3.3.0"),
         ],
     targets: [
